@@ -39,7 +39,6 @@ Or run each step manually, in order:
 3. `run_de_disuse.py` — disuse DEGs (10-day hindlimb unloading vs control)
 4. `run_tf_inference.py` — TF activity inference (decoupleR ULM against CollecTRI mouse regulon)
 5. `run_classify.py` — TF classification (Pan-Atrophy / Partial / Condition-Specific), correlation analysis, Fisher exact test
-6. `make_figures.py` — generates Figures 1–6 (300 DPI, PNG)
 
 Results are saved to `results/` (not included in this repo — regenerate by running the pipeline against the public data above).
 
