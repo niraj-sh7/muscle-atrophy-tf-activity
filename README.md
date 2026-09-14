@@ -6,7 +6,7 @@ This repository reproduces every result, table, and figure in the manuscript: a 
 
 ## Data
 
-This study used only publicly available data. No new data were generated. Raw counts are **not included** in this repository — download them from their original sources below before running the pipeline.
+This study used only publicly available data. No new data were generated. Raw counts are **not included** in this repository. Download them from their original sources below before running the pipeline.
 
 | Condition | Dataset | Source |
 |---|---|---|
@@ -34,13 +34,22 @@ python analysis_code.py
 
 Or run each step manually, in order:
 
-1. `run_de_spaceflight.py` — spaceflight DEGs (PyDESeq2, FLT vs GC)
-2. `run_de_sarcopenia.py` — sarcopenia DEGs (28-mo vs 8-mo)
-3. `run_de_disuse.py` — disuse DEGs (10-day hindlimb unloading vs control)
-4. `run_tf_inference.py` — TF activity inference (decoupleR ULM against CollecTRI mouse regulon)
-5. `run_classify.py` — TF classification (Pan-Atrophy / Partial / Condition-Specific), correlation analysis, Fisher exact test
+1. `run_de_spaceflight.py`: spaceflight DEGs (PyDESeq2, FLT vs GC)
+2. `run_de_sarcopenia.py`: sarcopenia DEGs (28-mo vs 8-mo)
+3. `run_de_disuse.py`: disuse DEGs (10-day hindlimb unloading vs control)
+4. `run_tf_inference.py`: TF activity inference (decoupleR ULM against CollecTRI mouse regulon)
+5. `run_classify.py`: TF classification (Pan-Atrophy / Partial / Condition-Specific), correlation analysis, Fisher exact test
 
-Results are saved to `results/` (not included in this repo — regenerate by running the pipeline against the public data above).
+Results are saved to `results/` (regenerate by running the pipeline against the public data above).
+
+## Robustness and sensitivity analyses
+
+Additional scripts supporting the manuscript's sensitivity and robustness checks (added for the PLOS ONE Round 2 revision, in response to Reviewer #2):
+
+- `run_sensitivity_analysis.py`: NES classification threshold sensitivity across |NES| = 1.0–2.5 (S3 Table).
+- `run_wald_rank_sensitivity.py`: Complementary robustness check for cross-dataset Wald-statistic comparability. Converts each dataset's per-gene Wald statistics to within-dataset rank-based z-scores prior to ULM scoring, removing dependence on the raw scale of the Wald statistic across independently fitted DESeq2 models, then compares the resulting TF ranking and Pan-Atrophy classification against the primary (raw-Wald) analysis via Spearman correlation and Jaccard overlap. Reads `geo_data/spaceflight_deg_full.csv`, `geo_data/sarcopenia_deg.csv`, and `geo_data/disuse_deg.csv`; outputs `wald_rank_sensitivity_results.csv`.
+- `run_correlation_scatter.py`: Pairwise TF-activity correlation scatter plots with regression lines and confidence bands (S1 Fig).
+
 
 ## Citation
 
