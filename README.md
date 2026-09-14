@@ -48,6 +48,7 @@ Additional scripts supporting the manuscript's sensitivity and robustness checks
 
 - `run_sensitivity_analysis.py`: NES classification threshold sensitivity across |NES| = 1.0–2.5 (S3 Table).
 - `run_wald_rank_sensitivity.py`: Complementary robustness check for cross-dataset Wald-statistic comparability. Converts each dataset's per-gene Wald statistics to within-dataset rank-based z-scores prior to ULM scoring, removing dependence on the raw scale of the Wald statistic across independently fitted DESeq2 models, then compares the resulting TF ranking and Pan-Atrophy classification against the primary (raw-Wald) analysis via Spearman correlation and Jaccard overlap. Reads `geo_data/spaceflight_deg_full.csv`, `geo_data/sarcopenia_deg.csv`, and `geo_data/disuse_deg.csv`; outputs `wald_rank_sensitivity_results.csv`.
+- `run_correlation_permutation_test.py`: Permutation and bootstrap-based robustness check for the pairwise TF-activity Pearson correlations, addressing non-independence across TFs from overlapping CollecTRI regulons. Includes an automatic CollecTRI-regulon retrieval chain (local cache → direct Zenodo download → OmniPath REST API fallback) with the resulting regulon size printed for verification against the manuscript's reported values. Outputs correlation_permutation_results.csv.
 - `run_correlation_scatter.py`: Pairwise TF-activity correlation scatter plots with regression lines and confidence bands (S1 Fig).
 
 
