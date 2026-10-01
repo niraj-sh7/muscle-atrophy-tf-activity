@@ -1,6 +1,6 @@
 # Muscle Atrophy TF Activity
 
-Code for **"Transcription Factor Activity Divergence Across Muscle Atrophy Conditions: A Comparative Analysis of Spaceflight, Aging, and Disuse Using decoupleR"** (Shah, submitted to *PLOS ONE*).
+Code for **"Transcription Factor Activity Divergence Across Muscle Atrophy Conditions: A Comparative Analysis of Spaceflight, Aging, and Disuse Using decoupleR"** (Shah, *PLOS ONE*, 2026). Paper: [https://doi.org/10.1371/journal.pone.0359659](https://doi.org/10.1371/journal.pone.0359659)
 
 This repository reproduces every result, table, and figure in the manuscript: a comparative transcription-factor (TF) activity analysis of mouse skeletal-muscle atrophy across spaceflight, sarcopenia, and disuse, using PyDESeq2 for differential expression and decoupleR (ULM method) against the CollecTRI mouse regulon for TF activity inference.
 
